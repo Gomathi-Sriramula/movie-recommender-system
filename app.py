@@ -1,6 +1,17 @@
+import os
+import pickle
 import pandas as pd
 import streamlit as st
+import urllib.request
+
+similarity_path = "similarity.pkl"
+if not os.path.exists(similarity_path):
+    print("Downloading similarity.pkl from Google Drive...")
+    url = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE"
+    urllib.request.urlretrieve(url, similarity_path)
 st.title('Movie Recommender System 🎬')
+
+similarity = pickle.load(open(similarity_path, 'rb'))
 
 import pickle
 movie_dict=pickle.load(open('movie_dict.pkl','rb'))
@@ -37,7 +48,7 @@ def recommend(movie):
     return recommended_movies,recommended_movies_poster
 
 
-similarity=pickle.load(open('similarity.pkl','rb'))
+#similarity=pickle.load(open('similarity.pkl','rb'))
 
 if st.button("Recommend"):
     names,posters=recommend(selected_movie_name)
