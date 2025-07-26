@@ -7,7 +7,7 @@ import urllib.request
 similarity_path = "similarity.pkl"
 if not os.path.exists(similarity_path):
     print("Downloading similarity.pkl from Google Drive...")
-    url = "https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_HERE"
+    url = "https://drive.google.com/uc?export=download&id=10MzPV9wKqZPIdGlSMMIWNc0mOuCZtgPj"
     urllib.request.urlretrieve(url, similarity_path)
 st.title('Movie Recommender System 🎬')
 
