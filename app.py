@@ -4,12 +4,15 @@ import pandas as pd
 import streamlit as st
 import urllib.request
 
+
+import gdown
+
 similarity_path = "similarity.pkl"
 if not os.path.exists(similarity_path):
     print("Downloading similarity.pkl from Google Drive...")
-    url = "https://drive.google.com/uc?export=download&id=10MzPV9wKqZPIdGlSMMIWNc0mOuCZtgPj"
-    urllib.request.urlretrieve(url, similarity_path)
-st.title('Movie Recommender System 🎬')
+    file_id = "10MzPV9wKqZPIdGlSMMIWNc0mOuCZtgPj"  # your file ID here
+    url = f"https://drive.google.com/uc?id={file_id}"
+    gdown.download(url, similarity_path, quiet=False)
 
 similarity = pickle.load(open(similarity_path, 'rb'))
 
