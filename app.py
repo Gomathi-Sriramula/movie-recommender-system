@@ -6,7 +6,7 @@ import urllib.request
 
 
 import gdown
-
+st.title("Movie recommender System🎥")
 similarity_path = "similarity.pkl"
 if not os.path.exists(similarity_path):
     print("Downloading similarity.pkl from Google Drive...")
@@ -23,7 +23,7 @@ movies=pd.DataFrame(movie_dict)
 
 
 selected_movie_name= st.selectbox(
-    "How would you like to be contacted?",
+    "Start by selecting a movie you enjoy",
     (movies['title'].values),
 )
 import requests
